@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PROJECT_FINAL.Models.Product>
+
+
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success alert-dismissible" style="margin-top:100px">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>@TempData["msg"]</strong>
+    </div>
+}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h2 style="margin-top:100px">View all products in our store...</h2>
+
+
+<div class="row" >
+  
+    <div class="col-lg-2 col-md-2 col-sm-2">
+        <p style="text-align:left">
+            @if (User.IsInRole("Administrator"))
+            {
+                @Html.ActionLink("Create New", "Create")
+            }
+
+        </p>
+        <h5 style="text-align:left;font-family:'Arial Rounded MT'"><span class="btn btn-info">@Html.ActionLink("Check Out", "Checkout", "Products")</span></h5>
+    </div>
+</div>
+
+
+<div class="row" style="margin-bottom:100px">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-4" style="margin-top:100px; height:200px">
+                <img class="img img-responsive cimg" src="~/uploads/@item.ImgUrl"
+                     style="height:100%;width:100%; border-radius:50px 50px 50px 50px " />
+                <h4 style="text-align:center; font-family:'Arial Rounded MT'">@item.Title<br /><small>@item.Price</small></h4>
+                <h5 style="text-align:center;font-family:'Arial Rounded MT'">
+                    <a class="btn btn-success" href="@Url.Action("AddtoCart", new { id = @item.ProductId })">
+                        <i class="fa fa-shopping-cart" style="font-size:24px"></i> Add to Cart
+                    </a>
+
+
+                    <span>
+                        @if (User.IsInRole("Administrator")) 
+                        {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductId })
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductId }) 
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                        }
+                    </span>
+                </h5>
+            </div>
+          
+        }
+    }
+</div>

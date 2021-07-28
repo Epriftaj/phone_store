@@ -1,0 +1,38 @@
+﻿@model PROJECT_FINAL.Models.Product
+@{
+    ViewBag.Title = "AddtoCart";
+}
+
+<h2 style="margin-top:80px">Add To Cart</h2>
+
+@using (@Html.BeginForm())
+{
+    if (Model != null)
+    {
+
+
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <img style="min-height:200px;width:100%" src="~/uploads/@Model.ImgUrl" />
+                </div>
+
+
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h1>Product Name: @Model.Title</h1>
+                    <h3>Price:@Model.Price</h3>
+                    <h4>Description:@Model.Description</h4>
+
+                    <input type="number" name="Quantity" value="10" id="Quantity" min="1" max="10" />
+                    @if (Model.isActive == true)
+                    {
+                        <input type="submit" value="Submit" class="btn btn-default" />
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+}

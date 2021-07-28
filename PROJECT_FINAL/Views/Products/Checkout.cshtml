@@ -1,0 +1,69 @@
+﻿@model PROJECT_FINAL.Models.Product
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2 style="margin-top:80px">Checkout </h2>
+
+@if (TempData["Cart"] != null)
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+
+                <td>Title</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in TempData["Cart"] as List<PROJECT_FINAL.Models.Cart>)
+            {
+                <tr>
+
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                    <td>@item.Total</td>
+                    <td>
+                        <a class="btm btn-danger" href="@Url.Action("remove", new {id=item.ProductId})">&#10008;</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
+
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>@TempData["total"]</td>
+            </tr>
+        </tfoot>
+
+
+    </table>
+
+}
+else
+{
+
+    <h2 style="color:red;margin-top:80px">Cart is empty!</h2>
+    @Html.ActionLink("go Back", "Index", "Products")
+}
+
+
+@if (User.IsInRole("SimpleUser"))
+{
+    if (TempData["Cart"] != null)
+    {
+        using (Html.BeginForm())
+        {
+            <input type="submit" value="Buy Now" class="btn btn-primary" />
+        }
+    }
+    @Html.ActionLink("Continue shopping?", "Index", "Products")
+
+}
+

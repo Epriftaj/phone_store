@@ -1,0 +1,21 @@
+﻿
+
+.navbar-inverse {
+    background-color: #15155d;
+  
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   
+    line-height: 1.42857143;
+    color: black;
+}
+.navbar-inverse .navbar-brand {
+    color: #03a9f4;
+    font-size:20px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+    font-size:17px;
+}
+
