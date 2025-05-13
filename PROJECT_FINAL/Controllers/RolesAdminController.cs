@@ -121,7 +121,11 @@ namespace PROJECT_FINAL.Controllers
         }
 
 
-
+        [HttpGet]
+        public ActionResult RessetPassword()
+        {
+            return View();
+        }
 
     }
 }

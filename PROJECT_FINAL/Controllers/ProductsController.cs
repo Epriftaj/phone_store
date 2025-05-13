@@ -230,6 +230,7 @@ namespace PROJECT_FINAL.Controllers
                 od.Qty = item.Quantity;
                 od.UnitPrice = item.Price;
                 od.TotalAmount = item.Total;
+               
                 db.Orders.Add(od);
                 //db.SaveChanges();
             }

@@ -196,17 +196,30 @@
     <Compile Include="Migrations\202107021013569_RelationOfTbl.Designer.cs">
       <DependentUpon>202107021013569_RelationOfTbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108021549315_delverystatus.cs" />
+    <Compile Include="Migrations\202108021549315_delverystatus.Designer.cs">
+      <DependentUpon>202108021549315_delverystatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108021607083_orders.cs" />
+    <Compile Include="Migrations\202108021607083_orders.Designer.cs">
+      <DependentUpon>202108021607083_orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppModel.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Categorytbl.cs" />
+    <Compile Include="Models\DeliveryStatus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invoices.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PendingOrderVM.cs" />
+    <Compile Include="ViewModels\RessetPasswordVM.cs" />
+    <Compile Include="ViewModels\StatusOrderVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -283,6 +296,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AddtoCart.cshtml" />
     <Content Include="Views\Products\Checkout.cshtml" />
+    <Content Include="Views\RolesAdmin\RessetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +330,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107021013569_RelationOfTbl.resx">
       <DependentUpon>202107021013569_RelationOfTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108021549315_delverystatus.resx">
+      <DependentUpon>202108021549315_delverystatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108021607083_orders.resx">
+      <DependentUpon>202108021607083_orders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

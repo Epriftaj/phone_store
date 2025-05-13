@@ -14,7 +14,12 @@ namespace PROJECT_FINAL.Models
         public int Qty { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalAmount { get; set; }
-
+        [Required]
+        public int InvoiceId { get; set; }
+        [Required]
+        public string UserId { get; set; }
+        public virtual Invoices Invoice { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         //ka si FK ProductId
 

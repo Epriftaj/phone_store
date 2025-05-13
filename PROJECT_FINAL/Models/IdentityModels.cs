@@ -34,6 +34,8 @@ namespace PROJECT_FINAL.Models
         public DbSet<Cart> Carts { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Invoices> Invoices { get; set; }
+        public DbSet<DeliveryStatus> DeliveryStatus { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
